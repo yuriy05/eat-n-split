@@ -71,6 +71,7 @@ export default function App() {
         <FormSplitBill
           selectedFriend={selectedFriend}
           onSplitBill={handldeSplitBill}
+          key={selectedFriend.id}
         />
       )}
     </div>
@@ -180,7 +181,7 @@ function FormSplitBill({ selectedFriend, onSplitBill }) {
   const [userPay, setUserPay] = useState('');
   const [whoIsPaying, setWhoIsPaying] = useState('user');
 
-  const paidByFriend = bill ? bill - userPay : '';
+  const paidByFriend = bill ? bill - userPay : 0;
 
   const handleSubmit = (e) => {
     e.preventDefault();
